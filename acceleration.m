@@ -1,9 +1,9 @@
-function a = acceleration(input_omega, angles, xdot, param)
+function acc_N = acceleration(input_omega, ang_N, vel_N, param)
 
 gravity = [0; 0; -param.g];
-R = rotation(angles);
+R = rotation(ang_N);
 T = R * thrust(input_omega, param.k);
-Fd = -param.A * xdot;
-a = gravity + 1 / param.m * T + Fd;
+Fd = -param.A * vel_N;
+acc_N = gravity + 1 / param.m * T + Fd;
 
 end
