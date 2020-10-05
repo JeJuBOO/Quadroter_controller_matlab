@@ -9,4 +9,5 @@ function [pos, vel, acc] = tj_from_line(start_pos, end_pos, time_ttl, t_c)
         pos = end_pos - (time_ttl-t_c)*vel/2;
         acc = [0;0;0];
     end
+
 end
