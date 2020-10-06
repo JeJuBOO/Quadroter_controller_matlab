@@ -6,10 +6,11 @@ end_time = 12;
 dt = 0.0001;
 times = start_time:dt:end_time;
 addpath('trajectories')
+addpath('utill')
 
 % trajectory generator
 
-trajectory = @diamond;
+trajectory = @circle;
 
 %start state
 start_D = trajectory(0);
