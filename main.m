@@ -38,14 +38,6 @@ N = numel(times);
 
 figure(1)
 subplot(3,1,1);
-plot(times,s_save(1,:), times,s_save(2,:), times,s_save(3,:))
-title('\fontsize{15}Positions x,y,z')
-xlabel('Time t (s)')
-ylabel('Position (m)')
-legend('x','y','z')
-grid on
-
-subplot(3,1,2);
 plot(times,input_omega_save(1,:),times,input_omega_save(2,:),times,input_omega_save(3,:),times,input_omega_save(4,:))
 title('\fontsize{15}Control omega 企_{i}')
 xlabel('Time t(s)')
@@ -53,10 +45,18 @@ ylabel('Control omega 企_{i} (rad/s)')
 legend('企_{1}','企_{2}','企_{3}','企_{4}')
 grid on
 
-subplot(3,1,3);
+subplot(3,1,2);
 plot(times,rad2deg(s_save(7,:)), times,rad2deg(s_save(8,:)), times,rad2deg(s_save(9,:)))
 title('\fontsize{15}Angles 仰,亥,份')
 xlabel('Time t(s)')
 ylabel('Angles')
 legend('仰','亥','份')
+grid on
+
+subplot(3,1,3);
+plot(times,s_save(1,:), times,s_save(2,:), times,s_save(3,:))
+title('\fontsize{15}Positions x,y,z')
+xlabel('Time t (s)')
+ylabel('Position (m)')
+legend('x','y','z')
 grid on
