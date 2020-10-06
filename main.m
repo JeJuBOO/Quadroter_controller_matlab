@@ -2,16 +2,20 @@ clear
 close all
 % time, in seconds1`io
 start_time = 0;
-end_time = 6;
+end_time = 12;
 dt = 0.0001;
 times = start_time:dt:end_time;
+addpath('trajectories')
+
+% trajectory generator
+
+trajectory = @diamond;
 
 %start state
-% start_D = diamond(0);
-% state_0 = initial_state(start_D.pos,0);
-s_posi=[0;0;1]; 
-state = initial_state(s_posi,0);
-state_D = desired_state();
+start_D = trajectory(0);
+state_0 = initial_state(start_D.pos,0); 
+state = state_0;
+% state_D = desired_state();
 
 param = Parameter();
 s_save = zeros(12,1);
@@ -22,7 +26,7 @@ iter = 0;
 for t = times
     iter = iter + 1;
     
-%     state_D = diamond(t);
+    state_D = trajectory(t);
     
     input_omega = controller(state,state_D,param);
     
@@ -60,3 +64,6 @@ xlabel('Time t (s)')
 ylabel('Position (m)')
 legend('x','y','z')
 grid on
+
+figure(2)
+plot3(s_save(1,:),s_save(2,:),s_save(3,:))
