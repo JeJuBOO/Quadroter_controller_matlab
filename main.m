@@ -10,15 +10,16 @@ addpath('utill')
 
 % trajectory generator
 
-trajectory = @circle;
+trajectory = @diamond;
 
 %start state
 start_D = trajectory(0);
 state_0 = initial_state(start_D.pos,0); 
 state = state_0;
 % state_D = desired_state();
-
+s_acc = start_D.acc;
 param = Parameter();
+traj_save = zeros(3,1);
 s_save = zeros(12,1);
 input_omega_save = zeros(4,1);
 
@@ -29,12 +30,13 @@ for t = times
     
     state_D = trajectory(t);
     
-    input_omega = controller(state,state_D,param);
+    [input_omega,Thrust,torq] = controller(state,state_D,param,dt);
+   
+    % state = [position_N;vel_N;ang_N;omega_B];
+    state = rk4(state, input_omega,Thrust,torq, dt, param);
     
-  
-    state = rk4(state, input_omega, dt, param);
     
-    
+    traj_save(:,iter) = state_D.pos;
     s_save(:,iter) = state;
     input_omega_save(:,iter) = sqrt(input_omega);
 
@@ -68,3 +70,10 @@ grid on
 
 figure(2)
 plot3(s_save(1,:),s_save(2,:),s_save(3,:))
+hold on
+plot3(traj_save(1,:),traj_save(2,:),traj_save(3,:),":r")
+title('\fontsize{15}Positions x,y,z')
+
+hold off
+
+

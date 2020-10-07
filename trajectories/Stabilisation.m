@@ -5,11 +5,11 @@ function [s_D] = Stabilisation(t)
 % You have to set the pos, vel, acc, yaw and yawdot variables
 
 if t <= 0
-    pos = [0;0;1];
+    pos = [0;0;0];
     vel = [0;0;0];
     acc = [0;0;0];
 else
-    pos = [0;0;0];
+    pos = [10;10;10];
     vel = [0;0;0];
     acc = [0;0;0];
 end
