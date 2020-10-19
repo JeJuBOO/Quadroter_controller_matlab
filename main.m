@@ -30,7 +30,7 @@ for t = times
     
     state_D = trajectory(t);
     
-    [input_omega,Thrust,torq] = PID_controller(state,state_D,param,dt,acc);
+    [input_omega,Thrust,torq] = PD_controller(state,state_D,param,dt,acc);
     
     % state = [position_N;vel_N;ang_N;omega_B];
     state = rk4(state, input_omega,Thrust,torq, dt, param);
