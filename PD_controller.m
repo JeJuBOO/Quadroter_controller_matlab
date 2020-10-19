@@ -8,10 +8,10 @@ s_D.ang = ones(3,1);
 torq = zeros(3,1); d = zeros(3,1);
 
 % Parameters of the PD controller
-K_P_pos = [2 ; 2; 2];
+K_P_pos = [3 ; 3; 3.5];
 K_P_ang =[40 ; 40 ; 40];
 
-K_D_pos = [2.5 ; 2.5; 2.5];
+K_D_pos = [2.5; 2.5; 3];
 K_D_ang = [10 ; 10 ; 20];  
 
 d(1) = K_P_pos(1).*(s_D.pos(1)-s(1)) + K_D_pos(1).*(s_D.vel(1)-s(4));
