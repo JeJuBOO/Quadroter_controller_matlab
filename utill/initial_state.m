@@ -15,7 +15,4 @@ s(9)  = yaw;      %psi
 s(10) = 0;        %phi_dot
 s(11) = 0;        %theta_dot
 s(12) = 0;        %psi_dot
-% s(13) = 0;        %x_2dot
-% s(14) = 0;        %y_2dot
-% s(15) = 0;        %z_2dot
 end

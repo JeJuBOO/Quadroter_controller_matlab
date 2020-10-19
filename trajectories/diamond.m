@@ -4,7 +4,7 @@ function [s_D] = diamond(t)
 % =================== Your code goes here ===================
 % You have to set the pos, vel, acc, yaw and yawdot variables
 
-time_tol = 12;
+time_tol = 20;
 dt = 0.0001;
 
     function [pos, vel] = get_pos_vel(t)
