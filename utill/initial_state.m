@@ -9,11 +9,10 @@ s(3)  = start(3); %z
 s(4)  = 0;        %x_dot
 s(5)  = 0;        %y_dot
 s(6)  = 0;        %z_dot
-s(7)  = deg2rad(10);       %phi
-s(8)  = deg2rad(10);       %theta
-s(9)  = deg2rad(10);       %psi
+s(7)  = 0;        %phi
+s(8)  = 0;        %theta
+s(9)  = yaw;      %psi
 s(10) = 0;        %phi_dot
 s(11) = 0;        %theta_dot
 s(12) = 0;        %psi_dot
-
 end
