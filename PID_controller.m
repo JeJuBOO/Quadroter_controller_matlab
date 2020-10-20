@@ -6,16 +6,16 @@ function [input_omega,Thrust,torq] = PID_controller(s,s_D,param,dt,~)
 % input_omega = [omega_1 , omega_2 , omega_3 , omega_4]'
 
 s_D.ang = ones(3,1);
+s(10:12)=omega_B2N(s(10:12),s(7:9));
 
 % Parameters of the PD controller
-K_P_pos = [2.8 ; 3.35; 3];
+K_P_pos = [3.2 ; 3.2; 4.8];
 K_P_ang =[40 ; 40 ; 40];
 
 K_I_pos = [0.1;0.1;0.1];
 K_I_ang = [10;10;20];
 
-
-K_D_pos = [2.8 ; 2.5; 2.5];
+K_D_pos = [2.6 ; 2.6; 3.5];
 K_D_ang = [10 ; 10 ; 20];  
 
 
