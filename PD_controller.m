@@ -9,11 +9,11 @@ torq = zeros(3,1); d = zeros(3,1);
 s(10:12)=omega_B2N(s(10:12),s(7:9));
 
 % Parameters of the PD controller
-K_P_pos = [3.5 ; 3.8; 3.5];
-K_P_ang =[50 ; 50 ; 50];
+K_P_pos = [3.9 ; 3.3; 3.8];
+K_P_ang =[50 ; 50 ; 60];
 
-K_D_pos = [2.8; 2.8; 3.8];
-K_D_ang = [10 ; 10 ; 20];  
+K_D_pos = [3.1; 2.2; 3.6];
+K_D_ang = [10 ; 10 ; 30];  
 
 d(1) = K_P_pos(1).*(s_D.pos(1)-s(1)) + K_D_pos(1).*(s_D.vel(1)-s(4));
 
@@ -25,7 +25,7 @@ s_D.ang(1) = asin( (d(1)*sin(s_D.ang_psi) - d(2)*cos(s_D.ang_psi)) / ...
      sqrt(d(1)^2 + d(2)^2+(d(3)+param.g)^2));
 s_D.ang(2)= atan( (d(1)*cos(s_D.ang_psi) + d(2)*sin(s_D.ang_psi)) /...
       (d(3)+param.g));
-s_D.ang(3) =  s_D.ang_psi;
+s_D.ang(3) = s_D.ang_psi;
 s_D.ome = [0;0;s_D.ome_psi];
 
 S_x=sin(s_D.ang(1));  S_y=sin(s_D.ang(2));  S_z=sin(s_D.ang(3));
